@@ -1,5 +1,5 @@
 function log(str) {
-	document.body.innerHTML = document.body.innerHTML+"\n"+str;
+	document.body.innerHTML = document.body.innerHTML+"<br />"+str;
 }
 var client = matrixcs.createClient({
 	baseUrl: "http://matrix.org",
