@@ -43,12 +43,12 @@ client.once("sync",function(state, prev) {
 			if (event.getType() != "m.room.message") return;
 			if(event.sender.userId === userId) return;
 			var text = event.getContent().body;
-			log(text);
 			var result = roll(text);
 			if (result === undefined) return;
-			log(result);
+			var msg = text+": "+result;
+			log(msg);
 			var txn = client.makeTxnId();
-			client.sendNotice(room.roomId,text+": "+result, txn).catch(function(e) {
+			client.sendNotice(room.roomId,msg, txn).catch(function(e) {
 				log(e);
 			});
 		});
