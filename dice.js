@@ -38,6 +38,7 @@ function roll(text) {
 	}
 }
 client.once("sync",function(state, prev) {
+	log("READY");
 	if (state === "PREPARED") {
 		client.on("Room.timeline", function(event, room, toStart, removed, data) {
 			if (event.getType() != "m.room.message") return;
