@@ -28,13 +28,13 @@ function dice(num,sides) {
 	}
 	return total;
 }
-// Stack Overflow for the regex
+// Stack Overflow for the regex https://stackoverflow.com/a/35023056
 function roll(text) {
 	if (text.search("roll") >= 0) {
-		var n = text.search("([1-9]\\d*)?d([1-9]\\d*)([/x][1-9]\\d*)?");
-		var a = text.slice(n);
-		var d = a.split("d");
-		return dice(parseInt(d[0]),parseInt(d[1]));
+		var loc = text.search("([1-9]\\d*)?d([1-9]\\d*)([/x][1-9]\\d*)");
+		var rl = text.slice(loc);
+		var rlar = rl.split("d");
+		return dice(parseInt(rlar[0]),parseInt(rlar[1]));
 	}
 }
 client.once("sync",function(state, prev) {
