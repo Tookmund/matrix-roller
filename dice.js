@@ -31,7 +31,7 @@ function dice(num,sides) {
 // Stack Overflow for the regex https://stackoverflow.com/a/35023056
 function roll(text) {
 	if (text.search("roll") >= 0) {
-		var loc = text.search("([1-9]\\d*)?d([1-9]\\d*)([/x][1-9]\\d*)");
+		var loc = text.search("([1-9]\\d*)?d([1-9]\\d*)([/x][1-9]\\d*)?");
 		var rl = text.slice(loc);
 		var rlar = rl.split("d");
 		return dice(parseInt(rlar[0]),parseInt(rlar[1]));
