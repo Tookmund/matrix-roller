@@ -45,7 +45,7 @@ client.once("sync",function(state, prev) {
 			var text = event.getContent().body;
 			var result = roll(text);
 			if (result === undefined) return;
-			var msg = text+": "+result;
+			var msg = event.sender.name+": "+text+" = "+result;
 			log(msg);
 			var txn = client.makeTxnId();
 			client.sendNotice(room.roomId,msg, txn).catch(function(e) {
